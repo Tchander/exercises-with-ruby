@@ -8,7 +8,7 @@
 =end
 
 def digital_root(n)
-  while n >= 9 do
+  while n > 9 do
     str = n.to_s
     n = 0
     str.chars.each do |digit|
@@ -18,7 +18,12 @@ def digital_root(n)
   n
 end
 
+def digital_root_BEST(n)
+  n < 10 ? n : digital_root(n / 10 + n % 10)
+end
+
 puts digital_root(16) # 7
 puts digital_root(942) # 6
 puts digital_root(132189) # 6
 puts digital_root(493193) # 2
+puts digital_root(999999999999) # 2
